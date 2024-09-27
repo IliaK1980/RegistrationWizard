@@ -1,0 +1,6 @@
+@FarmManager.Server_HostAddress = http://localhost:5162
+
+GET {{RegistrationWizard.Server_HostAddress}}/api/animals/
+Accept: application/json
+
+###

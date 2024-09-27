@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Step 2</h1>
+  <form [formGroup]="locationForm" (ngSubmit)="save()">
+
+    <div>
+      <div class="input-group">
+        <label for="country">Country</label>
+        <select id="country" formControlName="countryId" (change)="onCountryChange()">
+          <option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</option>
+        </select>
+      </div>
+      <small *ngIf="locationForm.get('countryId')?.errors?.['required']">Country is required</small>
+    </div>
+
+    <div>
+      <div class="input-group">
+        <label for="province">Province</label>
+        <select id="province" formControlName="provinceId">
+          <option *ngFor="let province of provinces" [value]="province.id">{{ province.name }}</option>
+        </select>
+      </div>
+      <small *ngIf="locationForm.get('provinceId')?.errors?.['required']">Province is required</small>
+    </div>
+
+    <button type="submit" [disabled]="locationForm.invalid">Save</button>
+  </form>
+</div>
